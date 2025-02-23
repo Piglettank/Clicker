@@ -7,10 +7,10 @@ func _ready():
 	$"Data".price = 10
 	$"Data".speed = 1
 	
-	$"PriceLabel".set_text(Helpers.Strings.priceString("AutoClicker", $"Data".price))
+	$"PriceLabel".set_text(Helpers.Strings.priceString("Clicker", $"Data".price))
 	$"OwnedLabel".set_text(Helpers.Strings.ownedString($"Data".amount))
 
 func buy():
 	$"Data".onBuy()
-	$"PriceLabel".set_text(Helpers.Strings.priceString("AutoClicker", $"Data".price))
+	$"PriceLabel".set_text(Helpers.Strings.priceString("Clicker", $"Data".price))
 	$"OwnedLabel".set_text(Helpers.Strings.ownedString($"Data".amount))

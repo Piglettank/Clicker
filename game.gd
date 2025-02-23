@@ -12,7 +12,7 @@ func _process(delta):
 	var fromGrandmas = $"Grandma/Data".generate(delta)
 	money += fromAutoClickers
 	money += fromGrandmas
-	$Button/Label.set_text(str(snappedf(money, 1)))
+	$Button/Boints.set_text(str(snappedf(money, 1)))
 	
 
 func _on_upgrade_purchased(_viewport, event, _shape_idx, upgradeName):
