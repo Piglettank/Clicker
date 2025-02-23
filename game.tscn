@@ -1,0 +1,208 @@
+[gd_scene load_steps=15 format=3 uid="uid://rclbibowsrbp"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_g2tlh"]
+[ext_resource type="Script" path="res://Upgrades/AutoClicker.gd" id="2_0wkjg"]
+[ext_resource type="Script" path="res://ButtonAnimations.gd" id="2_uc3av"]
+[ext_resource type="Script" path="res://Upgrades/Grandma.gd" id="2_whw4r"]
+[ext_resource type="Script" path="res://Upgrade.gd" id="3_4n6y7"]
+[ext_resource type="Script" path="res://Save.gd" id="6_ycm8r"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_07tfu"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yi6ys"]
+load_path = "res://.godot/imported/Button Default.png-e3244bed8fe8deb0a0b018582ec81efc.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cv0eu"]
+size = Vector2(371, 137)
+
+[sub_resource type="SystemFont" id="SystemFont_1abp6"]
+msdf_size = 70
+
+[sub_resource type="Theme" id="Theme_12qlk"]
+default_font = SubResource("SystemFont_1abp6")
+default_font_size = 50
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5usf"]
+size = Vector2(37.1638, 20)
+
+[sub_resource type="Gradient" id="Gradient_x0dc8"]
+colors = PackedColorArray(0.509804, 0.129412, 0, 1, 0.329412, 0.396078, 0.152941, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4q3x7"]
+gradient = SubResource("Gradient_x0dc8")
+
+[node name="Clickable" type="Node2D"]
+material = SubResource("CanvasItemMaterial_07tfu")
+position = Vector2(589, 274)
+script = ExtResource("1_g2tlh")
+
+[node name="Button" type="Node2D" parent="."]
+position = Vector2(-3, 52)
+script = ExtResource("2_uc3av")
+
+[node name="Area2D2" type="Area2D" parent="Button"]
+
+[node name="Sprite" type="Sprite2D" parent="Button/Area2D2"]
+position = Vector2(2, 0)
+texture = SubResource("CompressedTexture2D_yi6ys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Button/Area2D2"]
+position = Vector2(4.5, 1.5)
+shape = SubResource("RectangleShape2D_cv0eu")
+
+[node name="Label" type="Label" parent="Button"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -54.0
+offset_top = -198.0
+offset_right = 47.0
+offset_bottom = -129.0
+grow_horizontal = 2
+theme = SubResource("Theme_12qlk")
+text = "Test
+"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Button"]
+offset_left = -33.0
+offset_top = -137.0
+offset_right = 30.0
+offset_bottom = -114.0
+text = "Boints"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 217.0
+offset_top = -9.0
+offset_right = 425.0
+offset_bottom = 31.0
+
+[node name="AutoClicker" type="Area2D" parent="."]
+position = Vector2(-331, 246)
+script = ExtResource("2_0wkjg")
+
+[node name="Data" type="Node" parent="AutoClicker"]
+script = ExtResource("3_4n6y7")
+
+[node name="Area" type="CollisionShape2D" parent="AutoClicker"]
+position = Vector2(-1, 1)
+scale = Vector2(3.755, 3.755)
+shape = SubResource("RectangleShape2D_s5usf")
+
+[node name="PriceLabel" type="Label" parent="AutoClicker"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -67.5
+offset_right = 45.0
+offset_bottom = -44.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "auto clicker"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="AutoClicker"]
+position = Vector2(-0.5, 0)
+scale = Vector2(2.14062, 1.125)
+texture = SubResource("GradientTexture2D_4q3x7")
+
+[node name="OwnedLabel" type="Label" parent="AutoClicker"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.5
+offset_top = 44.5
+offset_right = 33.5
+offset_bottom = 67.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "owned "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Grandma" type="Area2D" parent="."]
+position = Vector2(4, 246)
+script = ExtResource("2_whw4r")
+
+[node name="Data" type="Node" parent="Grandma"]
+script = ExtResource("3_4n6y7")
+
+[node name="Area" type="CollisionShape2D" parent="Grandma"]
+position = Vector2(-1, 1)
+scale = Vector2(3.755, 3.755)
+shape = SubResource("RectangleShape2D_s5usf")
+
+[node name="PriceLabel" type="Label" parent="Grandma"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -67.5
+offset_right = 45.0
+offset_bottom = -44.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "auto clicker"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Grandma"]
+position = Vector2(-0.5, 0)
+scale = Vector2(2.14062, 1.125)
+texture = SubResource("GradientTexture2D_4q3x7")
+
+[node name="OwnedLabel" type="Label" parent="Grandma"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.5
+offset_top = 44.5
+offset_right = 33.5
+offset_bottom = 67.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "owned "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -574.0
+offset_top = -264.0
+offset_right = -330.0
+offset_bottom = -140.0
+
+[node name="Save" type="Button" parent="Control"]
+layout_mode = 0
+offset_right = 121.0
+offset_bottom = 31.0
+text = "Save"
+script = ExtResource("6_ycm8r")
+
+[node name="Load" type="Button" parent="Control"]
+layout_mode = 0
+offset_top = 37.0
+offset_right = 120.0
+offset_bottom = 63.0
+text = "Load"
+
+[connection signal="input_event" from="Button/Area2D2" to="." method="_on_clicked"]
+[connection signal="input_event" from="Button/Area2D2" to="Button" method="_on_area_input_event"]
+[connection signal="mouse_entered" from="Button/Area2D2" to="Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Button/Area2D2" to="Button" method="_on_mouse_exited"]
+[connection signal="input_event" from="AutoClicker" to="." method="_on_upgrade_purchased" binds= ["AutoClicker"]]
+[connection signal="input_event" from="Grandma" to="." method="_on_upgrade_purchased" binds= ["Grandma"]]
