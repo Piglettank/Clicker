@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwbgtq3myddxk"
-path="res://.godot/imported/auto click.png-bcc9b69e8385e6abadff5c54fb1f7ee5.ctex"
+uid="uid://ckoexylj01yyt"
+path="res://.godot/imported/button_hovered.png-f790450695ebc1ec2b172c46709fc258.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Upgrades/auto click.png"
-dest_files=["res://.godot/imported/auto click.png-bcc9b69e8385e6abadff5c54fb1f7ee5.ctex"]
+source_file="res://sprites/button_hovered.png"
+dest_files=["res://.godot/imported/button_hovered.png-f790450695ebc1ec2b172c46709fc258.ctex"]
 
 [params]
 

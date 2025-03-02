@@ -1,4 +1,0 @@
-enum Upgrade {
-	autoClicker,
-	grandma
-}

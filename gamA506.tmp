@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://rclbibowsrbp"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_g2tlh"]
+[ext_resource type="Script" path="res://points_display.gd" id="1_itpxr"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_07tfu"]
+
+[sub_resource type="Gradient" id="Gradient_jjkfk"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fflyu"]
+gradient = SubResource("Gradient_jjkfk")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cv0eu"]
+size = Vector2(67, 62)
+
+[node name="Clickable" type="Node2D"]
+material = SubResource("CanvasItemMaterial_07tfu")
+position = Vector2(589, 274)
+script = ExtResource("1_g2tlh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(2, 0)
+texture = SubResource("GradientTexture2D_fflyu")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -39.0
+offset_top = -57.0
+offset_right = 37.0
+offset_bottom = -34.0
+grow_horizontal = 2
+horizontal_alignment = 1
+script = ExtResource("1_itpxr")
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_cv0eu")
+
+[connection signal="mouse_entered" from="Area2D2" to="Label" method="_on_area_2d_2_mouse_entered"]

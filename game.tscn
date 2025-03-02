@@ -1,11 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://rclbibowsrbp"]
+[gd_scene load_steps=13 format=3 uid="uid://rclbibowsrbp"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_g2tlh"]
-[ext_resource type="Script" path="res://Upgrades/AutoClicker.gd" id="2_0wkjg"]
-[ext_resource type="Script" path="res://ButtonAnimations.gd" id="2_uc3av"]
-[ext_resource type="Script" path="res://Upgrades/Grandma.gd" id="2_whw4r"]
-[ext_resource type="Script" path="res://Upgrade.gd" id="3_4n6y7"]
-[ext_resource type="Script" path="res://Save.gd" id="6_ycm8r"]
+[ext_resource type="Script" path="res://upgrade.gd" id="2_0wkjg"]
+[ext_resource type="Script" path="res://button_animations.gd" id="2_uc3av"]
+[ext_resource type="Script" path="res://save.gd" id="6_ycm8r"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_07tfu"]
 
@@ -78,46 +76,36 @@ offset_top = -9.0
 offset_right = 425.0
 offset_bottom = 31.0
 
-[node name="AutoClicker" type="Area2D" parent="."]
+[node name="Clicker" type="Area2D" parent="."]
 position = Vector2(-344, 237)
 script = ExtResource("2_0wkjg")
 
-[node name="Data" type="Node" parent="AutoClicker"]
-script = ExtResource("3_4n6y7")
-
-[node name="Area" type="CollisionShape2D" parent="AutoClicker"]
+[node name="Area" type="CollisionShape2D" parent="Clicker"]
 position = Vector2(3.25002, -2.24997)
 scale = Vector2(3.755, 3.755)
 shape = SubResource("RectangleShape2D_s5usf")
 
-[node name="Sprite2D" type="Sprite2D" parent="AutoClicker"]
+[node name="Sprite2D" type="Sprite2D" parent="Clicker"]
 position = Vector2(2.45542, -1.45)
 scale = Vector2(0.216602, 0.216602)
 texture = SubResource("CompressedTexture2D_2ubxr")
 
-[node name="PriceLabel" type="Label" parent="AutoClicker"]
-offset_left = -29.0
-offset_top = -27.0
-offset_right = 151.0
-offset_bottom = 18.0
-scale = Vector2(0.997574, 1)
+[node name="PriceLabel" type="Label" parent="Clicker"]
+offset_left = -4.0
+offset_top = -28.0
+offset_right = 75.0
+offset_bottom = 6.0
 theme_type_variation = &"HeaderMedium"
 text = "Clicker
 "
 
-[node name="OwnedLabel" type="Label" parent="AutoClicker"]
+[node name="OwnedLabel" type="Label" parent="Clicker"]
 top_level = true
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -354.0
-offset_top = 190.0
-offset_right = -276.0
-offset_bottom = 221.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = -1
+offset_left = 242.0
+offset_top = 514.0
+offset_right = 304.0
+offset_bottom = 540.0
 theme_type_variation = &"TooltipLabel"
 theme_override_fonts/font = SubResource("SystemFont_1vbr4")
 theme_override_font_sizes/font_size = 18
@@ -126,10 +114,10 @@ text = "Owned
 
 [node name="Grandma" type="Area2D" parent="."]
 position = Vector2(4, 246)
-script = ExtResource("2_whw4r")
-
-[node name="Data" type="Node" parent="Grandma"]
-script = ExtResource("3_4n6y7")
+script = ExtResource("2_0wkjg")
+upgradeName = "Grandma"
+price = 40
+speed = 5
 
 [node name="Area" type="CollisionShape2D" parent="Grandma"]
 position = Vector2(2, -12)
@@ -199,5 +187,5 @@ text = "Load"
 [connection signal="input_event" from="Button/Area2D2" to="Button" method="_on_area_input_event"]
 [connection signal="mouse_entered" from="Button/Area2D2" to="Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Button/Area2D2" to="Button" method="_on_mouse_exited"]
-[connection signal="input_event" from="AutoClicker" to="." method="_on_upgrade_purchased" binds= ["AutoClicker"]]
+[connection signal="input_event" from="Clicker" to="." method="_on_upgrade_purchased" binds= ["Clicker"]]
 [connection signal="input_event" from="Grandma" to="." method="_on_upgrade_purchased" binds= ["Grandma"]]
